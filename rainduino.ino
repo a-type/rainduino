@@ -14,7 +14,8 @@ Adafruit_CC3000 cc3000 = Adafruit_CC3000(ADAFRUIT_CC3000_CS, ADAFRUIT_CC3000_IRQ
 
 #define DHCP_RETRIES 128
 #define IDLE_TIMEOUT_MS 3000
-#define BUFFER_SIZE 14
+// two 3-digit temp, one 3-digit condition code
+#define BUFFER_SIZE 9
 
 void setup() {
 	// put your setup code here, to run once:
@@ -219,17 +220,20 @@ void getForecast() {
 	char buffer[BUFFER_SIZE];
 	memset(buffer, 0, sizeof(buffer));
 
-	int c;
-	while((c = www.read()) != '#');
+	char c;
+	while((c = www.read()) != '#') {
+		Serial.print(c);
+	}
+	Serial.println("++++++++++++++++++++");
 
-	if (www.read(buffer, sizeof(buffer))) {
+	if (www.read(buffer, BUFFER_SIZE)) {
 		Serial.println(buffer);
-		// Serial.println(F("Conditions:"));
-		// Serial.println(conditions);
-		// Serial.println(F("High:"));
-		// Serial.println(high);
-		// Serial.println(F("Low:"));
-		// Serial.println(low);
+	// 	// Serial.println(F("Conditions:"));
+	// 	// Serial.println(conditions);
+	// 	// Serial.println(F("High:"));
+	// 	// Serial.println(high);
+	// 	// Serial.println(F("Low:"));
+	// 	// Serial.println(low);
 	}
 	else {
 		Serial.println(F("Error reading from client."));
