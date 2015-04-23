@@ -226,18 +226,11 @@ void getForecast() {
 	}
 	Serial.println("++++++++++++++++++++");
 
-	if (www.read(buffer, BUFFER_SIZE)) {
-		Serial.println(buffer);
-	// 	// Serial.println(F("Conditions:"));
-	// 	// Serial.println(conditions);
-	// 	// Serial.println(F("High:"));
-	// 	// Serial.println(high);
-	// 	// Serial.println(F("Low:"));
-	// 	// Serial.println(low);
+	for (int i = 0; i < BUFFER_SIZE; i++) {
+		buffer[i] = www.read();
 	}
-	else {
-		Serial.println(F("Error reading from client."));
-	}
+	Serial.println(buffer);
+	
 	www.close();
 	Serial.println(F("<---------------------------"));
 }
