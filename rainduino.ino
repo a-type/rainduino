@@ -14,7 +14,7 @@ Adafruit_CC3000 cc3000 = Adafruit_CC3000(ADAFRUIT_CC3000_CS, ADAFRUIT_CC3000_IRQ
 
 #define DHCP_RETRIES 128
 #define IDLE_TIMEOUT_MS 3000
-#define BUFFER_SIZE 16
+#define BUFFER_SIZE 18
 
 void setup() {
 	// put your setup code here, to run once:

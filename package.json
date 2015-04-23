@@ -1,0 +1,16 @@
+{
+  "name": "rainduino_webserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webserver/server.js",
+  "scripts": {
+    "test": "grunt test",
+    "start": "node webserver/server.js"
+  },
+  "author": "Grant Forrest",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^8.4.0",
+    "wreck": "^5.4.0"
+  }
+}
