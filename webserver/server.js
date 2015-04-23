@@ -15,7 +15,7 @@ server.route({
 				var hi = payload.forecast.simpleforecast.forecastday[0].high.celsius;
 				var low = payload.forecast.simpleforecast.forecastday[0].low.celsius;
 				var conditions = payload.forecast.simpleforecast.forecastday[0].icon;
-				reply("" + hi + low + conditions);
+				reply("#" + hi + low + conditions);
 			}
 		);
 	}
